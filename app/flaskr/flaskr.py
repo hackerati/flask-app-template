@@ -26,9 +26,6 @@ def init_db():
             db.cursor().executescript(f.read())
         db.commit()
 
-if __name__ == '__main__':
-    app.run()
-
 
 @app.before_request
 def before_request():
@@ -76,3 +73,5 @@ def logout():
     flash('You were logged out')
     return redirect(url_for('show_entries'))
 
+if __name__ == '__main__':
+    app.run()
