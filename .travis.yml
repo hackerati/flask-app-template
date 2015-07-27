@@ -1,0 +1,4 @@
+language: python
+
+pip:
+~	"2.7.6"
