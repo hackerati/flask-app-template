@@ -63,5 +63,5 @@ module.exports = function(grunt) {
 
     // Run the default task by typing "grunt" on the command line
     grunt.registerTask('default', ['concurrent']);
-
+    grunt.registerTask('travis', 'lint qunit');
 };
