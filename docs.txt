@@ -2,3 +2,4 @@ IMPLEMENTING TRAVIS
 	The first result of "Travis CI" on Google is travis-ci.org
 	travis-ci.org only contains public projects, so you will want to go to travisci.com, which contains private projects
 	click on the + next to "running", make sure you click on the correct organization or your own account, and select the repository you want to test
+	create .travis.yml in the root directory and fill it according to this tutorial http://docs.travis-ci.com/user/languages/python/ 
