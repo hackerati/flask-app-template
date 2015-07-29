@@ -221,11 +221,66 @@ TODO: Fork this repo, rename
 
 You'll need to setup your own continous integration service. This repo comes with [TravisCI](http://www.travis-ci.com) already configured. Once you've pushed your code to Github, login into Travis and connect it to your repo. By default, your first build will happen the next time that you push this repo to Github.
 
-### Setting Up AWS Staging Environment
+### Setting Up AWS Elastic Beanstalk on Local Development Environment
+
+NOTE: This is only relevant on the Docker Host (e.g. Linux).
+
+Install Elastic Beanstalk CLI
+
+TODO: Add EB CLI install to Vagrantfile for Mac. Then vagrant ssh
+
+Clone the repo and run the environment locally:
+
+```bash
+$ git clone git@github.com:thehackerati/flask-app-template.git
+$ cd flask-app-template
+$ eb init
+$ eb local run
+```
+
+Test the local environment:
+
+```bash
+$ curl http://127.0.0.1
+```
+
+### Setting Up AWS Production Environment
+
+```bash
+$ eb create
+WARNING: The Multi-container Docker platform requires additional ECS permissions. Add the permissions to the aws-elasticbeanstalk-ec2-role or use your own instance profile by typing "-ip {profile-name}".
+For more information see: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_ecstutorial.html#create_deploy_docker_ecstutorial_role
+Enter Environment Name
+(default is flask-app-template-dev): flaskAppTemplateProd
+Enter DNS CNAME prefix
+(default is flaskAppTemplateProd):
+lots of output...
+```
+
+Test the production environment:
+
+```bash
+$ curl http://FlaskAppTemplateProd.elasticbeanstalk.com 
+```
 
 TODO: Setup automated deploy to AWS Elastic Beanstalk
 
-### Setting Up AWS Production Environment
+### Setting Up AWS Staging Environment
+
+```bash
+eb clone                    │
+Enter name for Environment Clone
+(default is my-cloned-env): FlaskAppTemplateStaging
+Enter DNS CNAME prefix
+(default is FlaskAppTemplateStaging):
+lots of output...
+```
+
+Test the staging environment:
+
+```bash
+$ curl http://FlaskAppTemplateStaging.elasticbeanstalk.com 
+```
 
 TODO: Setup automated deploy to AWS Elastic Beanstalk
 
