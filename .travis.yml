@@ -19,7 +19,7 @@ deploy:
     bucket_path: production
     skip_cleanup: true
     on:
-      repo: thehackerati/node-app-template
+      repo: thehackerati/flask-app-template
       branch: master
 
   # Deploy staging branch to staging environment  on merge (or push)
