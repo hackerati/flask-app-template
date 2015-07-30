@@ -8,12 +8,14 @@ python:
   - "nightly"
 # command to install dependencies
 install:
-  - "sudo pip install --upgrade pip"
+  - "pip install --upgrade pip"
   - "pip install ."
   - "pip install -r requirements.txt"
 # command to run tests
 script: nosetests
 before_deploy: cd ..
+
+sudo: false
 
 deploy:
   # Deploy master branch to production environment  on merge (or push)
