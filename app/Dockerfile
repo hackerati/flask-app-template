@@ -5,19 +5,32 @@
 
 FROM thehackerati/node-base:latest
 
-# Use changes to package.json to force Docker not to use the cache
-# when we change our application's nodejs dependencies:
-ADD package.json /tmp/package.json
-RUN cd /tmp && npm install
-RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
  
-# From here, we load our application's code so the previous docker "layer"
-# that was cached will be used if possible
-WORKDIR /opt/app
-ADD . /opt/app
- 
-# Define the default port. This can be overridden by the container manager
-EXPOSE 3000
- 
-# Run app using CMD from the default ENTRYPOINT: /bin/sh -c npm start
-CMD ["npm", "start"]
+# From here, we load our application's code so the previous docker "layer"dd the application resources URL
+RUN echo "deb http://archive.ubuntu.com/ubuntu/ $(lsb_release -sc) main universe" >> /etc/apt/sources.list
+
+# Update the sources list
+RUN apt-get update
+
+# Install basic applications
+RUN apt-get install -y tar git curl nano wget dialog net-tools build-essential
+
+# Install Python and Basic Python Tools
+RUN apt-get install -y python python-dev python-distribute python-pip
+
+# Copy the application folder inside the container
+ADD /app /my_application
+
+# Get pip to download and install requirements:
+RUN pip install -r /app/requirements.txt
+
+# Expose ports
+EXPOSE 80
+
+# Set the default directory where CMD will execute
+WORKDIR /app
+
+# Set the default command to execute    
+# when creating a new container
+# i.e. using CherryPy to serve the application
+CMD python server.py
