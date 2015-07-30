@@ -2,7 +2,7 @@
   "AWSEBDockerrunVersion": 2,
   "volumes": [
     {
-      "name": "node-app-template",
+      "name": "flask-app-template",
       "host": {
         "sourcePath": "/var/app/current/app"
       }
@@ -11,12 +11,12 @@
   "containerDefinitions": [
     {
       "name": "appsvr",
-      "image": "thehackerati/node-app-template",
+      "image": "thehackerati/flask-app-template",
       "essential": true,
       "memory": 128,
       "mountPoints": [
         {
-          "sourceVolume": "node-app-template",
+          "sourceVolume": "flask-app-template",
           "containerPath": "/var/opt/app",
           "readOnly": true
         }
