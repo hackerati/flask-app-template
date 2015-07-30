@@ -4,3 +4,37 @@ node_js:
 before_install: npm install -g grunt-cli
 install: cd app &&  npm install
 script: grunt test
+before_deploy: cd ..
+
+deploy:
+  # Deploy master branch to production environment  on merge (or push)
+  - provider: elasticbeanstalk
+    access_key_id: AKIAJNTNA6QVLWNUQDCA
+    secret_access_key:
+      secure: AoxIOKPqThhpC41Vadr7JKKIiPxZAn6mIyoQBv72/7IGVR8tiy4cf4RK9ZgEfP2m2HWYXJptR3ju1sHB5ruxQpCI68EQvRbIWhhU4ktsWHrNeG7mwqK5+PDFScahKO8kGMvHjbwuw8f+g7G1iy1WxGxGNzHKCwxLclIU7yqdrOGCmLy0p3kbsOveFHTaBC1BFEGyH0nU/yZZV63aJJkoYlDz24wmbhCTgTG04esuVkP6Akh0xwkcevX+0LtBLqZ51WljpclB/2TtXNgoYVL00GlMyFHx+UHU5lGweu9pHepci46NJtvG2Yu2MJb4+7T6uJLRUVwB+fRWaTgcF6somJomAUoRKfZzVYlngvOxondzyq5xyrBs0uL5hDGSwjtto9vLomLVPyiUVlwY6f87PtWpKX0W9J7ZCpqR16DEzB8jlUjtdvgkIc0tmY74fJIOb+sTlUvlRIFsKGeiBjxQWhYL3RRLAnH7MTYJKO4qg/UfCvaKvZt9fz4JHWVstdf/sZUkBh4Ofa3pvSWbLabf8LANYiysakOkW89F6O07eT9Ynosg5nYEMEGcS6mZ+oyWiq4WUVdPfVDaHxzDmzj86SfDU8xGMas09QazM/ixNYv2nbAsQtfMBtvnr7UgJJmRE1qwSQAZrbrswr2fOMeKe0imZAOcqbgdZZqY7Yjr9Dc=
+    region: us-east-1
+    app: flask-app-template
+    env: FlaskAppTemplateProd
+    bucket_name: flask-app-template-deploy
+    bucket_path: production
+    skip_cleanup: true
+    on:
+      repo: thehackerati/flask-app-template
+      branch: master
+
+  # Deploy staging branch to staging environment  on merge (or push)
+  - provider: elasticbeanstalk
+    access_key_id: AKIAJNTNA6QVLWNUQDCA
+    secret_access_key:
+      secure: AoxIOKPqThhpC41Vadr7JKKIiPxZAn6mIyoQBv72/7IGVR8tiy4cf4RK9ZgEfP2m2HWYXJptR3ju1sHB5ruxQpCI68EQvRbIWhhU4ktsWHrNeG7mwqK5+PDFScahKO8kGMvHjbwuw8f+g7G1iy1WxGxGNzHKCwxLclIU7yqdrOGCmLy0p3kbsOveFHTaBC1BFEGyH0nU/yZZV63aJJkoYlDz24wmbhCTgTG04esuVkP6Akh0xwkcevX+0LtBLqZ51WljpclB/2TtXNgoYVL00GlMyFHx+UHU5lGweu9pHepci46NJtvG2Yu2MJb4+7T6uJLRUVwB+fRWaTgcF6somJomAUoRKfZzVYlngvOxondzyq5xyrBs0uL5hDGSwjtto9vLomLVPyiUVlwY6f87PtWpKX0W9J7ZCpqR16DEzB8jlUjtdvgkIc0tmY74fJIOb+sTlUvlRIFsKGeiBjxQWhYL3RRLAnH7MTYJKO4qg/UfCvaKvZt9fz4JHWVstdf/sZUkBh4Ofa3pvSWbLabf8LANYiysakOkW89F6O07eT9Ynosg5nYEMEGcS6mZ+oyWiq4WUVdPfVDaHxzDmzj86SfDU8xGMas09QazM/ixNYv2nbAsQtfMBtvnr7UgJJmRE1qwSQAZrbrswr2fOMeKe0imZAOcqbgdZZqY7Yjr9Dc=
+    region: us-east-1
+    app: flask-app-template
+    env: FlaskAppTemplateStaging
+    bucket_name: flask-app-template-deploy
+    bucket_path: staging
+    skip_cleanup: true
+    on:
+      repo: thehackerati/flask-app-template
+      branch: staging
+
+

@@ -163,7 +163,7 @@ This environment is designed to support GitHub Flow, which is described in more 
     - TODO: look for clock skew issues in container
 - Frequently commit your changes.
 - Push your changes to a Github feature branch of the same name at least once a day.
-- Travis will run tests automatically on push (move this to on opening a pull request?)
+- Travis will run tests automatically on push
 - Repeat until you’re ready to merge your commits (remember to frequently rebase with upstream master)
 - Push to Github and open a pull request
 - Review and merge the pull request to staging branch to deploy to staging environment
@@ -219,7 +219,10 @@ TODO: Fork this repo, rename
 
 ### Setting Up Continuous Integration
 
-You'll need to setup your own continous integration service. This repo comes with [TravisCI](http://www.travis-ci.com) already configured. Once you've pushed your code to Github, login into Travis and connect it to your repo. By default, your first build will happen the next time that you push this repo to Github.
+You'll need to setup your own continous integration service. This repo comes with [Travis CI](https://travis-ci.org/) already configured. Once you've pushed your code to Github, login into Travis and connect it to your repo. By default, your first build will happen the next time that you push this repo to Github.
+
+To run just the test without deploying to Elastic Beanstalk comment out everything below, and including the line with `before_deply`.  You can add it back after setting up Elastic Beanstalk and instructions for automatic deployment with travis can be found below.
+
 
 ### Setting Up AWS Elastic Beanstalk on Local Development Environment
 
@@ -282,7 +285,18 @@ Test the staging environment:
 $ curl http://FlaskAppTemplateStaging.elasticbeanstalk.com 
 ```
 
-TODO: Setup automated deploy to AWS Elastic Beanstalk
+###Automated deploy to AWS Elastic Beanstalk
+
+Already configured in this repo is the travis CI mL file to allow for automated deployment to EB.  For public repos, you should be able to log into https://travis-ci.org/
+
+To configure your Elastic Beanstalk deployment keys you can follow the format of the `.travis.yml` file.    
+* You will need to replace the `access_key_id` with your own ID
+* You will need to encrypt your `secret_access_key` with the Travis CLI
+* To encrypt your key, follow the [instructions from Travis](http://docs.travis-ci.com/user/encryption-keys/)
+* You will also need to change the repo and branch names as needed to match your fork.
+* Be sure you have an S3 bucket with folders created for `staging` and `production` and the correct names are referenced in the `.travis.yml`
+
+
 
 ## License
 Copyright (c) 2015 The Hackerati. This software is licensed under the MIT License.
