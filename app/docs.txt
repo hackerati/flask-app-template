@@ -1,0 +1,9 @@
+things to change:
+	package.json
+	nodemon.json
+	app.js
+	views
+	Dockerrun.aws.json
+	travis, Dockerfile
+
+in app.py, put lines 13-30 from the flask tutorial's example source code, add a home function that renders the template "helloworld.html", and run the app as instructed in the flask tutorial
