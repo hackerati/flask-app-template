@@ -1,4 +1,6 @@
-.core import setup
+import os
+import sys
+from setuptools import setup
 
 setup(
     # Application name:

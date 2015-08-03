@@ -1,2 +1,2 @@
-flask
-redis
+Flask==0.3.0
+redis==3.0.3
