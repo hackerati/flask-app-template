@@ -8,4 +8,4 @@ web:
    - redis
 
 redis:
-  image: redis- appsvr:appsvr
+  image: redis-appsvr:appsvr
