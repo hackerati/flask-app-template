@@ -1,11 +1,11 @@
 web:
-  build: ./app
+  build: .
   ports:
    - "5000:5000"
   volumes:
-   - "app:/src/app"
+   - ".:/app"
   links:
    - redis
 
 redis:
-  image: redis-appsvr:appsvr
+  image: redis
