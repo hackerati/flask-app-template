@@ -3,3 +3,5 @@ IMPLEMENTING TRAVIS
 	travis-ci.org only contains public projects, so you will want to go to travisci.com, which contains private projects
 	click on the + next to "running", make sure you click on the correct organization or your own account, and select the repository you want to test
 	create .travis. yml in the root directory and fill it according to this tutorial http://docs.travis-ci.com/user/languages/python/ 
+
+fill docker-compose.yml according to the tutorial: https://docs.docker.com/compose/, replacing the build and volumes according to the names in the repository

@@ -16,7 +16,7 @@ setup(
 
 
 
-    # long_description=open("README.txt").read(),
+   # long_description=open("requirements.txt").read(),
 
     # Dependent packages (distributions)
     install_requires=[

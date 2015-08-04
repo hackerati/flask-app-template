@@ -20,15 +20,15 @@ RUN apt-get install -y python python-dev python-distribute python-pip
 
 # Copy the application folder inside the container
 ADD . /my_application
-
+#WORKDIR app
 # Get pip to download and install requirements:
-RUN pip install -r requirements.txt
-
-# Expose ports
-EXPOSE 80
-
+#RUN pip install -r requirements.txt
 # Set the default directory where CMD will execute
 WORKDIR .
+
+#RUN python setup.py install
+# Expose ports
+EXPOSE 80
 
 # Set the default command to execute    
 # when creating a new container
