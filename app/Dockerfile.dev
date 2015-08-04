@@ -22,19 +22,38 @@
 # watch the source tree for changes and automatically run tests and reload
 # the server.
 ###########################################################################
+#Dockerfile to build AWS deployment node-app-template container image
+###########################################################################
 
-FROM thehackerati/node-app-template
+FROM thehackerati/node-base:latest
 
-# Install development and debugging tools
-RUN npm install nodemon -g && \
-    npm install grunt-cli -g
 
-# Use changes to package.json to force Docker not to use the cache
-# when we change our application's nodejs dependencies:
-ADD package.json /tmp/app/package.json
-RUN cd /tmp/app && npm install
+# From here, we load our application's code so the previous docker "layer"dd the application resources URL
+RUN echo "deb http://archive.ubuntu.com/ubuntu/ $(lsb_release -sc) main universe" >> /etc/apt/sources.list
 
-WORKDIR /src/app
+# Update the sources list
+RUN apt-get update
 
-# Run CMD from the default ENTRYPOINT: /bin/sh -c /src/app/run-dev-mode.sh
-CMD ["/src/app/run-dev-mode.sh"]
+# Install basic applications
+RUN apt-get install -y tar git curl nano wget dialog net-tools build-essential
+
+# Install Python and Basic Python Tools
+RUN apt-get install -y python python-dev python-distribute python-pip
+
+# Copy the application folder inside the container
+ADD . /my_application
+#WORKDIR app
+# Get pip to download and install requirements:
+#RUN pip install -r requirements.txt
+# Set the default directory where CMD will execute
+WORKDIR .
+
+#RUN python setup.py install
+# Expose ports
+EXPOSE 80
+
+# Set the default command to execute    
+# when creating a new container
+# i.e. using CherryPy to serve the application
+#CMD python server.py
+~                     

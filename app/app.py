@@ -8,6 +8,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
 app = Flask(__name__)
 
 # Load default config and override config from an environment variable
+"""
 app.config.update(dict(
     DATABASE=os.path.join(app.root_path, 'flaskr.db'),
     DEBUG=True,
@@ -16,7 +17,7 @@ app.config.update(dict(
     PASSWORD='default'
 ))
 app.config.from_envvar('FLASKR_SETTINGS', silent=True)
-
+"""
 @app.route('/')
 def home():
 	return render_template('helloworld.html')
