@@ -39,14 +39,13 @@ RUN apt-get install -y tar git curl nano wget dialog net-tools build-essential
 
 # Install Python and Basic Python Tools
 RUN apt-get install -y python python-dev python-distribute python-pip
-
+RUN pip install flask
 # Copy the application folder inside the container
-ADD . /my_application
-#WORKDIR app
+#ADD app /my_application
 # Get pip to download and install requirements:
 #RUN pip install -r requirements.txt
 # Set the default directory where CMD will execute
-WORKDIR .
+WORKDIR app
 
 #RUN python setup.py install
 # Expose ports
@@ -55,5 +54,5 @@ EXPOSE 80
 # Set the default command to execute    
 # when creating a new container
 # i.e. using CherryPy to serve the application
-#CMD python server.py
+CMD python app/app.py
 ~                     
