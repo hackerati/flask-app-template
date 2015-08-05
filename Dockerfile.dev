@@ -30,7 +30,7 @@
 
 # From here, we load our application's code so the previous docker "layer"dd the application resources URL
 #RUN echo "deb http://archive.ubuntu.com/ubuntu/ $(lsb_release -sc) main universe" >> /etc/apt/sources.list
-FROM ubuntu
+FROM orchardup/python:2.7
 # Update the sources list
 RUN apt-get update
 

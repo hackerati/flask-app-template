@@ -1,11 +1,9 @@
 ############################################################################
 # Dockerfile to build AWS deployment node-app-template container image
 # 
-###########################################################################
-
-
-FROM ubuntu 
+######################################################################### 
 # From here, we load our application's code so the previous docker "layer"dd the application resources URL
+FROM orchardup/python:2.7
 RUN echo "deb http://archive.ubuntu.com/ubuntu/ $(lsb_release -sc) main universe" >> /etc/apt/sources.list
 
 # Update the sources list
