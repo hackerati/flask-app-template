@@ -31,4 +31,3 @@ EXPOSE 80
 # when creating a new container
 # i.e. using CherryPy to serve the application
 CMD python app/app.py
-
