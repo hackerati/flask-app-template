@@ -4,3 +4,21 @@ web:
    - "5000:5000"
   volumes:
    - ".:/app"
+appsvr:
+  build: ./app
+  dockerfile: "Dockerfile.dev"
+  volumes:
+  - "app:/src/app"
+  expose:
+  - "3000"
+nginx:
+  restart: always
+  build: ./nginx
+  ports:
+  - "80:8080"
+  volumes:
+  - /www/public
+  volumes_from:
+  - appsvr
+  links:
+  - appsvr:appsvr
