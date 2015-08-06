@@ -1,9 +1,3 @@
-web:
-  build: .
-  ports:
-   - "5000:5000"
-  volumes:
-   - ".:/app"
 appsvr:
   build: ./app
   dockerfile: "Dockerfile.dev"
@@ -20,5 +14,3 @@ nginx:
   - /www/public
   volumes_from:
   - appsvr
-  links:
-  - appsvr:appsvr
