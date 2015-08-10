@@ -1,24 +1,20 @@
-web:
-  build: .
-  ports:
-   - "5000:5000"
-  volumes:
-   - ".:/app"
+# Start the node.js application server for local development.
 appsvr:
   build: ./app
   dockerfile: "Dockerfile.dev"
   volumes:
-  - "app:/src/app"
+    - ".:/src/app"
   expose:
-  - "3000"
+    - "5000"
+
 nginx:
   restart: always
   build: ./nginx
   ports:
-  - "80:8080"
+    - "80:8080"
   volumes:
-  - /www/public
+    - /www/public
   volumes_from:
-  - appsvr
+    - appsvr
   links:
-  - web:web
+    - appsvr:appsvr
