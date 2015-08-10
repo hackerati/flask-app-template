@@ -25,31 +25,18 @@
 #Dockerfile to build AWS deployment node-app-template container image
 ###########################################################################
 
-#FROM thehackerati/node-base:latest
 
+FROM python:2-onbuild
 
-# From here, we load our application's code so the previous docker "layer"dd the application resources URL
-#RUN echo "deb http://archive.ubuntu.com/ubuntu/ $(lsb_release -sc) main universe" >> /etc/apt/sources.list
-FROM orchardup/python:2.7
 # Update the sources list
-RUN apt-get update
+# RUN apt-get update
 
 # Install basic applications
-RUN apt-get install -y tar git curl nano wget dialog net-tools build-essential
+# RUN apt-get install -y tar git curl nano wget dialog net-tools build-essential
 
-# Install Python and Basic Python Tools
-RUN apt-get install -y python python-dev python-distribute python-pip
-RUN pip install flask
-# Copy the application folder inside the container
-#ADD app /my_application
-# Get pip to download and install requirements:
-#RUN pip install -r requirements.txt
-# Set the default directory where CMD will execute
 WORKDIR app
 
-#RUN python setup.py install
-# Expose ports
-EXPOSE 80
+EXPOSE 5000
 
 # Set the default command to execute    
 # when creating a new container
