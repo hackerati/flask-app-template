@@ -33,7 +33,7 @@ FROM python:2-onbuild
 
 # Install basic applications
 # RUN apt-get install -y tar git curl nano wget dialog net-tools build-essential
-
+ADD . app
 WORKDIR app
 
 EXPOSE 5000
@@ -41,4 +41,4 @@ EXPOSE 5000
 # Set the default command to execute    
 # when creating a new container
 # i.e. using CherryPy to serve the application
-CMD python app/app.py                     
+CMD sudo chmod +x app/app.py &&  python app/app.py                     
