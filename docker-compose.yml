@@ -3,9 +3,11 @@ appsvr:
   build: ./app
   dockerfile: "Dockerfile.dev"
   volumes:
-    - "app:/src/app"
+    - ".:/src/app"
   expose:
-    - "3000"
+    - "5000"
+  ports:
+    - "5000:5000"    
 
 nginx:
   restart: always

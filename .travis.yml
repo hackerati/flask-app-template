@@ -1,10 +1,20 @@
-language: node_js
-node_js:
-- stable
-before_install: npm install -g grunt-cli
-install: cd app &&  npm install
-script: grunt test
+language: python
+python:
+  - "2.6"
+  - "2.7"
+  - "3.2"
+  - "3.3"
+  - "3.4"
+  - "nightly"
+# command to install dependencies
+install:
+  - "pip install"
+  - "pip install -r app/requirements.txt"
+# command to run tests
+script: nosetests
 before_deploy: cd ..
+
+sudo: false
 
 deploy:
   # Deploy master branch to production environment  on merge (or push)
