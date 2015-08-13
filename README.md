@@ -146,9 +146,10 @@ You can add additional services like mongodb, mysql, redis, and elasticsearch as
 
 Note: Docker uses volumes to mount host directories in containers; so you can keep directories on your host and your container in sync. This allows you to do things like develop in your host using your favorite editor while you watch for changes to code in your container so you can automatically reload your application and/or run tests. Docker containers mount volumes at boot time, not at build time, in order to maintain portability from host to host. If you try to mount a volume on a mount point inside your container, the contents of the mounted volume will overwrite any files or directories that might have previously existed in your mount point.
 
-This makes installing application dependencies at build time (e.g. running npm install, pip or whatever package manager you use) a little tricky. They key is to install dependencies in a separate directory from your volume mount point, so they don't get overwritten when the container boots. You can then either modify your application to look for dependencies wherever you installed them, or you can copy the dependencies to your mounted volume before starting your application. Note that any changes to your mounted volume will be reflected in your host directory, which isn't desirable. Neither is having a non-standard deployment directory structure. TODO: decide on the best approach.
+This makes installing application dependencies at build time (e.g. running npm install, pip or whatever package manager you use) a little tricky. They key is to install dependencies in a separate directory from your volume mount point, so they don't get overwritten when the container boots. You can then either modify your application to look for dependencies wherever you installed them, or you can copy the dependencies to your mounted volume before starting your application. Note that any changes to your mounted volume will be reflected in your host directory, which isn't desirable. Neither is having a non-standard deployment directory structure.  
 
-Here, ./app/Dockerfile installs dependencies in /opt/app in the container at build time. At boot time, docker-compose.yml mounts the ./app directory in the host (project root) on the /src/app volume in the appsvr container and then runs /src/app/start.sh in the container, which copies the flask_modules directory from /opt/app to /src/app. In doing so, ./app/flask_modules will also be created in the host.
+TODO: decide on the best approach.
+
 
 ## Working in the Environment
 
