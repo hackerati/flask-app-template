@@ -1,4 +1,4 @@
-# node-app-template
+# flask-app-template
 
 [![Build Status](https://travis-ci.org/thehackerati/flask-app-template.svg?branch=staging)](https://travis-ci.org/thehackerati/node-app-template)
 
