@@ -1,8 +1,8 @@
 # flask-app-template
 
-[![Build Status](https://travis-ci.org/thehackerati/flask-app-template.svg?branch=staging)](https://travis-ci.org/thehackerati/node-app-template)
+[![Build Status](https://travis-ci.org/thehackerati/flask-app-template.svg?branch=staging)](https://travis-ci.org/thehackerati/flask-app-template)
 
-This is a starting point for a Docker-based node.js app or micro-service, configured for continuous integration with Travis and continuous deployment to AWS. Just clone and rename the repo and start coding.
+This is a starting point for a Docker-based flask app, configured for continuous integration with Travis and continuous deployment to AWS. Just clone and rename the repo and start coding.
 
 ## Running locally
 
@@ -23,8 +23,8 @@ $ brew cask install vagrant
 Now you can start the environment:
 
 ```bash
-$ git clone git@github.com:thehackerati/node-app-template.git
-$ cd node-app-template
+$ git clone git@github.com:thehackerati/flask-app-template.git
+$ cd flask-app-template
 $ vagrant plugin install vagrant-docker-compose
 $ vagrant up
 ```
@@ -84,8 +84,8 @@ $ chmod +x /usr/local/bin/docker-compose
 At this point, you can clone the repo and start the Docker containers:
 
 ```bash
-$ git clone git@github.com:thehackerati/node-app-template.git
-$ cd node-app-template
+$ git clone git@github.com:thehackerati/flask-app-template.git
+$ cd flask-app-template
 $ docker-compose build
 $ docker-compose up
 ```
@@ -106,7 +106,7 @@ $ docker-compose up
 You might additionally see the following error message:
 
 ```bash
-Conflict. The name "nodeapptemplate_nginx_1" is already in use by container <container>. You have to delete (or rename) that container to be able to reuse that name.
+Conflict. The name "flaskapptemplate_nginx_1" is already in use by container <container>. You have to delete (or rename) that container to be able to reuse that name.
 ```
 
 If that is the case, stop and remove all containers and restart:
@@ -138,7 +138,7 @@ As a starting point, this repo only includes some very basic components:
 - LICENSE: It's MIT licensed!
 - README.md: this file
 - Vagrantfile: configures a VM that runs docker-compose on boot
-- app: Docker container based on the official node image, along with the node/express app scaffolding
+- app: Docker container based on the official flask image, along with the flask/express app scaffolding
 - docker-compose.yml: runs the configured Docker containers
 - nginx: Docker container for the official nginx image, configured as a reverse proxy for the app
 
@@ -148,7 +148,7 @@ Note: Docker uses volumes to mount host directories in containers; so you can ke
 
 This makes installing application dependencies at build time (e.g. running npm install, pip or whatever package manager you use) a little tricky. They key is to install dependencies in a separate directory from your volume mount point, so they don't get overwritten when the container boots. You can then either modify your application to look for dependencies wherever you installed them, or you can copy the dependencies to your mounted volume before starting your application. Note that any changes to your mounted volume will be reflected in your host directory, which isn't desirable. Neither is having a non-standard deployment directory structure. TODO: decide on the best approach.
 
-Here, ./app/Dockerfile installs dependencies in /opt/app in the container at build time. At boot time, docker-compose.yml mounts the ./app directory in the host (project root) on the /src/app volume in the appsvr container and then runs /src/app/start.sh in the container, which copies the node_modules directory from /opt/app to /src/app. In doing so, ./app/node_modules will also be created in the host.
+Here, ./app/Dockerfile installs dependencies in /opt/app in the container at build time. At boot time, docker-compose.yml mounts the ./app directory in the host (project root) on the /src/app volume in the appsvr container and then runs /src/app/start.sh in the container, which copies the flask_modules directory from /opt/app to /src/app. In doing so, ./app/flask_modules will also be created in the host.
 
 ## Working in the Environment
 
@@ -195,14 +195,14 @@ $ vagrant ssh -c 'docker ps'
 To tail the log files from your containers:
 
 ```bash
-$ vagrant ssh -c 'docker logs -f nodeapptemplate_appsvr_1'
-$ vagrant ssh -c 'docker logs -f nodeapptemplate_nginx_1'
+$ vagrant ssh -c 'docker logs -f flaskapptemplate_appsvr_1'
+$ vagrant ssh -c 'docker logs -f flaskapptemplate_nginx_1'
 ```
 
 To open a shell in your Docker container
 
 ```bash
-$ vagrant ssh -c 'docker exec -i -t nodeapptemplate_appsvr_1 bash'
+$ vagrant ssh -c 'docker exec -i -t flaskapptemplate_appsvr_1 bash'
 ```
 
 To rebuild a container after changing a Dockerfile:
