@@ -181,7 +181,7 @@ You can find lots of useful information about Docker containers here:
 
 Here are some useful Docker commands that you can run from your host, assuming your containers are running in a VM under Vagrant. Make sure that you run these from your project root directory, where your Vagrantfile is located.
 
-To ssh to your VM (it's just a Linux host):
+To ssh to your VM (it's just a Linux host)
 
 ```bash
 $ vagrant ssh
