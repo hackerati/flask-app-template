@@ -13,9 +13,9 @@ sudo: false
 deploy:
   # Deploy master branch to production environment  on merge (or push)
   - provider: elasticbeanstalk
-    access_key_id: AKIAJNTNA6QVLWNUQDCA
+    access_key_id: AKIAJYCV23ZHCMABN6SQ
     secret_access_key:
-      secure: "tpyW/7Gn+7Fx/23sFFp/eH1GT7F2TlBTwcDoam3sRLTlJJz3Grb27dM3E5zSAfx5I8dPBJSbxNk/3MWTanSD++7TVsZKL5tHEkknxr7WFXav+/yRp+T+FPXwv/D6A/T6aahZ+f8wpKoLOLXZCxLIEfagY5oJDQkkyvkE9ESgtVYWLqxrDlo5bNGn3KfBEAFumd13qqW5qYv1G5BuX6fIUb4JzVVcae0qxKiWmO5W05qN0uiSuDl/3mL2kLGE0KU9W3j7raIbcjT6E8EQUCe3H/Qe7DVakesBVIoUU19+d1/AQyUCyecy/Z3otWnvX8SipdbqnS8sTSK145OjjfZH7NJOIEYbKl0sr1PilqHJoXBPvvSu8Y0NZk/6/NkwrIcZDuqYTN2jsiA0/7npKDNolcg+Lm97ybWCRUTSFzsRPJVx+efPT78HsmV8zvS3HYSzWvsjHmantJIFkQgeUrzNvLknviSaG+ejqaBmQJJnjnDUy6+4+f/nZLvf9QSbOnl2mo/akKHVPBsLe/3l1nhFNFpIcMGkL+dOErQwnIMzRiDegUDJgF/Eu2iUUEztpIQfnYOi/Bo4e/2vYsfE3S4UvzMToxafRWLEdiwrkD/Z86+SGrqp/+z8L7inxRqCcThlXqC7M71uh2qfMjVTbLZJU7/dOlhr3PsDxQ2bgrDOpvs="
+      "L3aZZw6cGYGOxdQu1IMCj9C2H3FHjKBjzdx9PNqWcsSlipHOZ5iXjg3jTtinNj6cyZO+ftLNZ4V4v9UfZeMjMBiL9XrUFHMT5Wzm9IXr2rpzvAO7Dg6tQVtA6A8/kCc88iqNaPJcjr0F303kDjV5IzgUH/nQLKHsauTFxC9E1RXNs8UPIlwn6p5V+D8ZLRGi3dLdmqQa/z8nIEUNQI1zNKidgi7GPNpOw8oI4RLoWgvzsyXh8zDLnhAX+W/ugDHc16ATGIdSHP7sjK2hBdlQgBMKGHV2t/EWP3aoEui+NJXTgcGZARLmH+Ax/KY68LCgX7HBlMIKgmqqnSoloxJGM1XX1jaJApXWzBN4wqkTTJVx0wTteD8xzEcLm4C1OEpCdnx2lMs/Fzw8a87zgZoIzNxieDE3X0VBaP56bAMUk45s/T/K+90zo6vASVOi4BeT3ok5+u/qndPhDo3u0TfXe/vvOusnWVD5wEMHMq7AbMk6qcnZ6/P/dybMeY4TO4RWaCI0sh6+tkjj2bs8Y6mV8IsLuFxIsW9JgJvCsWOowGH/zn7xtBRQ+IdQkfb4m7zajJwLlDUKUK6CUpIBz03R1WWHQctASXeFaJZAsdei2ZgoJKDZVVQvIQWasZAZGXylGYJVeI7GILAazlXt1ro5ue1fUcomZ/TJLQ6coO6tLhE="
     region: us-east-1
     app: flask-app-template
     env: FlaskAppTemplateProd
@@ -28,9 +28,9 @@ deploy:
 
   # Deploy staging branch to staging environment  on merge (or push)
   - provider: elasticbeanstalk
-    access_key_id: AKIAJNTNA6QVLWNUQDCA
+    access_key_id: AKIAJYCV23ZHCMABN6SQ
     secret_access_key:
-      secure: "tpyW/7Gn+7Fx/23sFFp/eH1GT7F2TlBTwcDoam3sRLTlJJz3Grb27dM3E5zSAfx5I8dPBJSbxNk/3MWTanSD++7TVsZKL5tHEkknxr7WFXav+/yRp+T+FPXwv/D6A/T6aahZ+f8wpKoLOLXZCxLIEfagY5oJDQkkyvkE9ESgtVYWLqxrDlo5bNGn3KfBEAFumd13qqW5qYv1G5BuX6fIUb4JzVVcae0qxKiWmO5W05qN0uiSuDl/3mL2kLGE0KU9W3j7raIbcjT6E8EQUCe3H/Qe7DVakesBVIoUU19+d1/AQyUCyecy/Z3otWnvX8SipdbqnS8sTSK145OjjfZH7NJOIEYbKl0sr1PilqHJoXBPvvSu8Y0NZk/6/NkwrIcZDuqYTN2jsiA0/7npKDNolcg+Lm97ybWCRUTSFzsRPJVx+efPT78HsmV8zvS3HYSzWvsjHmantJIFkQgeUrzNvLknviSaG+ejqaBmQJJnjnDUy6+4+f/nZLvf9QSbOnl2mo/akKHVPBsLe/3l1nhFNFpIcMGkL+dOErQwnIMzRiDegUDJgF/Eu2iUUEztpIQfnYOi/Bo4e/2vYsfE3S4UvzMToxafRWLEdiwrkD/Z86+SGrqp/+z8L7inxRqCcThlXqC7M71uh2qfMjVTbLZJU7/dOlhr3PsDxQ2bgrDOpvs="
+      "L3aZZw6cGYGOxdQu1IMCj9C2H3FHjKBjzdx9PNqWcsSlipHOZ5iXjg3jTtinNj6cyZO+ftLNZ4V4v9UfZeMjMBiL9XrUFHMT5Wzm9IXr2rpzvAO7Dg6tQVtA6A8/kCc88iqNaPJcjr0F303kDjV5IzgUH/nQLKHsauTFxC9E1RXNs8UPIlwn6p5V+D8ZLRGi3dLdmqQa/z8nIEUNQI1zNKidgi7GPNpOw8oI4RLoWgvzsyXh8zDLnhAX+W/ugDHc16ATGIdSHP7sjK2hBdlQgBMKGHV2t/EWP3aoEui+NJXTgcGZARLmH+Ax/KY68LCgX7HBlMIKgmqqnSoloxJGM1XX1jaJApXWzBN4wqkTTJVx0wTteD8xzEcLm4C1OEpCdnx2lMs/Fzw8a87zgZoIzNxieDE3X0VBaP56bAMUk45s/T/K+90zo6vASVOi4BeT3ok5+u/qndPhDo3u0TfXe/vvOusnWVD5wEMHMq7AbMk6qcnZ6/P/dybMeY4TO4RWaCI0sh6+tkjj2bs8Y6mV8IsLuFxIsW9JgJvCsWOowGH/zn7xtBRQ+IdQkfb4m7zajJwLlDUKUK6CUpIBz03R1WWHQctASXeFaJZAsdei2ZgoJKDZVVQvIQWasZAZGXylGYJVeI7GILAazlXt1ro5ue1fUcomZ/TJLQ6coO6tLhE="
     region: us-east-1
     app: flask-app-template
     env: FlaskAppTemplateStaging
