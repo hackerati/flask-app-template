@@ -13,9 +13,9 @@ sudo: false
 deploy:
   # Deploy master branch to production environment  on merge (or push)
   - provider: elasticbeanstalk
-    access_key_id: AKIAJYCV23ZHCMABN6SQ
+    access_key_id: AKIAJNTNA6QVLWNUQDCA
     secret_access_key:
-      secure: MEMFH1UvXtS2REiVhgU+GmkzrLSVJzr/BwngoBh990FTkjAvhM0IhNUI9uZKlQrq1B84HA3zjMscoqvznyQkk5X9pTT2RbACkxB6hbfRJN8zjZYQQX/d58hyvy5dkBhnpM++iHrNat66ANMvlcPc0ioD+cbFQBFDCcdBT2QrAKVxS9JLgZ/Eo/+sCg06ki29yNbTuaNYEj2fbRkg9qUfeZAYV3N/oj30Bvq8pu5JrLrFGuK/pErM9kD/+rr74dxJtzxpqAhPUrqXHaVkT2bpJ3I1rtssj69owbCK1sunVaoghEZmOH+ii6P8pCtR3Fa6IR9zU3g++7tQzJgIBoSmMwbM5loO3M0zzzXjxXy3LoHBEIWe6xfh4u7halbw5rZiNcUStrjjuELjTbvd9jAiaLjOfZ/1xlsIMUxO6T/nMHOg4VkOWa402CBE/rJq2kJpIM140cD+n5bXBDqP6zc8PtrUuFGy3mh4DM4U8vcDPcC6rKPxxyOP5LOGthNIFSRXjp2mUxjYebzKrNTLM3HrcImR2/tbUVKOFY0ufiK5fC2XVxUTuBdN6LlwtqawmUarLJUMvV4h6hAk7azl3qiIsxHlJGxTXF8RewI2QLL+HWeH51Ss+wqDvbkIMitQx6tMKjUfT2Fy70QR+H+McUBmr4IHmq4XxpC/Yg1LwcgD+gw=
+      secure: "p+Qdr1ftam4EyX1VLm8uqmnliS5vwbios93KD7dfTaMcu+rwInV4PPxXUT7Z/GbBs/GJd8st2UxRl+5xebWmi4eQVOxK+q7rKaWeqKq91jb0oXDW00ETU7OLwE8P0fqU1WPcoZKxu873IifL5AxfOAcvBHG4NCBkS5EwQbMeNibVfztFh8bLAeYTGyk2QZ4E1A8vwggUxtI96rYdXSnMAzaJY+epuIUa8ZAyjrmGE0GfuZ/tIMQEltht3CXJvvoTFiPDRA0xQxrU0EzIdqHnHgSK8vHW7XPqLey2W4gP4HUMbfNTIlUmEmMV7LpVc22VUGO3HdFfY9neJrSM5NU5a3Rr9se51jeIyNCEmv0LSjNebFrxZsnIqGru4GzlpLkHBLq0NjElChilHAlwcenkvfo12Ke3pEeJ+zPFCIvNWWsIXEPoWOk1ueoog0RHDm85pXJKaL9C2GKvQl02iaYhK7FkQ0SRRKBtE8XnNwqsIBmW1MnAvC34mF7p63a166AUwl88PpoXcZ2txcWq9hafWDtYnBLsWhWdsmgyvcXnhWaYacpF1i11gx3ShRgTUbfD7mNOX8Ru18H0OAxi83RVuib4oVWGg1gz/MWPtJljMIZltLBfiEelycSpiX1CAd/gLTO56M59GKs9XoiVXl6EbVNxo3xzcKuY2153Vx8ml3E="
     region: us-east-1
     app: flask-app-template
     env: FlaskAppTemplateProd
@@ -26,12 +26,11 @@ deploy:
       repo: thehackerati/flask-app-template
       branch: master
 
-  # Key for public repo
   # Deploy staging branch to staging environment  on merge (or push)
   - provider: elasticbeanstalk
-    access_key_id: AKIAJYCV23ZHCMABN6SQ
+    access_key_id: AKIAJNTNA6QVLWNUQDCA
     secret_access_key:
-      secure: MEMFH1UvXtS2REiVhgU+GmkzrLSVJzr/BwngoBh990FTkjAvhM0IhNUI9uZKlQrq1B84HA3zjMscoqvznyQkk5X9pTT2RbACkxB6hbfRJN8zjZYQQX/d58hyvy5dkBhnpM++iHrNat66ANMvlcPc0ioD+cbFQBFDCcdBT2QrAKVxS9JLgZ/Eo/+sCg06ki29yNbTuaNYEj2fbRkg9qUfeZAYV3N/oj30Bvq8pu5JrLrFGuK/pErM9kD/+rr74dxJtzxpqAhPUrqXHaVkT2bpJ3I1rtssj69owbCK1sunVaoghEZmOH+ii6P8pCtR3Fa6IR9zU3g++7tQzJgIBoSmMwbM5loO3M0zzzXjxXy3LoHBEIWe6xfh4u7halbw5rZiNcUStrjjuELjTbvd9jAiaLjOfZ/1xlsIMUxO6T/nMHOg4VkOWa402CBE/rJq2kJpIM140cD+n5bXBDqP6zc8PtrUuFGy3mh4DM4U8vcDPcC6rKPxxyOP5LOGthNIFSRXjp2mUxjYebzKrNTLM3HrcImR2/tbUVKOFY0ufiK5fC2XVxUTuBdN6LlwtqawmUarLJUMvV4h6hAk7azl3qiIsxHlJGxTXF8RewI2QLL+HWeH51Ss+wqDvbkIMitQx6tMKjUfT2Fy70QR+H+McUBmr4IHmq4XxpC/Yg1LwcgD+gw=
+      secure: "p+Qdr1ftam4EyX1VLm8uqmnliS5vwbios93KD7dfTaMcu+rwInV4PPxXUT7Z/GbBs/GJd8st2UxRl+5xebWmi4eQVOxK+q7rKaWeqKq91jb0oXDW00ETU7OLwE8P0fqU1WPcoZKxu873IifL5AxfOAcvBHG4NCBkS5EwQbMeNibVfztFh8bLAeYTGyk2QZ4E1A8vwggUxtI96rYdXSnMAzaJY+epuIUa8ZAyjrmGE0GfuZ/tIMQEltht3CXJvvoTFiPDRA0xQxrU0EzIdqHnHgSK8vHW7XPqLey2W4gP4HUMbfNTIlUmEmMV7LpVc22VUGO3HdFfY9neJrSM5NU5a3Rr9se51jeIyNCEmv0LSjNebFrxZsnIqGru4GzlpLkHBLq0NjElChilHAlwcenkvfo12Ke3pEeJ+zPFCIvNWWsIXEPoWOk1ueoog0RHDm85pXJKaL9C2GKvQl02iaYhK7FkQ0SRRKBtE8XnNwqsIBmW1MnAvC34mF7p63a166AUwl88PpoXcZ2txcWq9hafWDtYnBLsWhWdsmgyvcXnhWaYacpF1i11gx3ShRgTUbfD7mNOX8Ru18H0OAxi83RVuib4oVWGg1gz/MWPtJljMIZltLBfiEelycSpiX1CAd/gLTO56M59GKs9XoiVXl6EbVNxo3xzcKuY2153Vx8ml3E="
     region: us-east-1
     app: flask-app-template
     env: FlaskAppTemplateStaging
@@ -41,5 +40,3 @@ deploy:
     on:
       repo: thehackerati/flask-app-template
       branch: staging
-
-
