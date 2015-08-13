@@ -148,7 +148,7 @@ Note: Docker uses volumes to mount host directories in containers; so you can ke
 
 This makes installing application dependencies at build time (e.g. running npm install, pip or whatever package manager you use) a little tricky. They key is to install dependencies in a separate directory from your volume mount point, so they don't get overwritten when the container boots. You can then either modify your application to look for dependencies wherever you installed them, or you can copy the dependencies to your mounted volume before starting your application. Note that any changes to your mounted volume will be reflected in your host directory, which isn't desirable. Neither is having a non-standard deployment directory structure.  
 
-TODO: decide on the best approach.
+TODO: decide on the best approach....
 
 
 ## Working in the Environment
