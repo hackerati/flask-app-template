@@ -61,3 +61,6 @@ target/
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# vim nonsense
+*.swp
