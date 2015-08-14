@@ -13,7 +13,7 @@ If you're working on a Mac, you'll need a Linux virtual machine to use for devel
 - Vagrant: http://www.vagrantup.com/downloads.html
 - Virtualbox: https://www.virtualbox.org/wiki/Downloads
 
-You can also install Virtuabox on a Mac using Homebrew:
+You can install Virtuabox on a Mac using Homebrew:
 
 ```bash
 $ brew cask install virtualbox
