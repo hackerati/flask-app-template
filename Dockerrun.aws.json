@@ -30,7 +30,7 @@
     },
     {
       "name": "nginx-proxy",
-      "image": "thehackerati/nginx-reverse-proxy",
+      "image": "thehackerati/flask-app-nginx",
       "essential": true,
       "memory": 128,
       "portMappings": [
