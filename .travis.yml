@@ -6,9 +6,9 @@ install:
   - "pip install -r app/requirements.txt"
 # command to run tests
 script: nosetests
-before_deploy: cd ..
+#before_deploy: cd ..
 
-#sudo: false
+sudo: false
 
 deploy:
   # Deploy master branch to production environment  on merge (or push)
