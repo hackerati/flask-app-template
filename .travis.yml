@@ -8,7 +8,7 @@ install:
 script: nosetests
 before_deploy: cd ..
 
-sudo: false
+#sudo: false
 
 deploy:
   # Deploy master branch to production environment  on merge (or push)
