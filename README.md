@@ -200,7 +200,7 @@ $ vagrant ssh -c 'docker logs -f flaskapptemplate_appsvr_1'
 $ vagrant ssh -c 'docker logs -f flaskapptemplate_nginx_1'
 ```
 
-To open a shell in your Docker container
+To open a shell in your Docker container:
 
 ```bash
 $ vagrant ssh -c 'docker exec -i -t flaskapptemplate_appsvr_1 bash'
