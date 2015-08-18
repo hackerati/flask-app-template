@@ -1,6 +1,4 @@
-FROM tutum/nginx
-RUN rm /etc/nginx/sites-enabled/default
-ADD sites-enabled/ /etc/nginx/sites-enabled
+FROM nginx
 # Update the sources list
 RUN apt-get update
 
