@@ -32,8 +32,8 @@ FROM python:2-onbuild
 RUN apt-get update
 
 # Install basic applications
-RUN apt-get install -y tar git curl nano wget dialog net-tools build-essential
-
+#RUN apt-get install -y tar git curl nano wget dialog net-tools build-essential  
+#RUN pip install uwsgi
 #WORKDIR app
 
 EXPOSE 5000
@@ -42,4 +42,4 @@ EXPOSE 5000
 # when creating a new container
 # i.e. using CherryPy to serve the application
 RUN pwd
-CMD python app.py                     
+CMD uwsgi --ini app.ini && service nginx restart                    
