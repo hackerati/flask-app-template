@@ -42,4 +42,4 @@ EXPOSE 5000
 # when creating a new container
 # i.e. using CherryPy to serve the application
 RUN pwd
-CMD uwsgi --ini app.ini && service nginx restart                    
+CMD uwsgi --ini app.ini                      

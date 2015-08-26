@@ -1,6 +1,6 @@
 from flask import Flask
-app = Flask(__name__)
-#app.config['APP_ROOT'] = '/flask-app-template'
-@app.route("/")
+application = Flask(__name__)
+application.config['APPLICATION_ROOT'] = '/flask-app-template'
+@application.route("/")
 def hello():
     return "<h1 style='color:blue'>Hello There!</h1>"

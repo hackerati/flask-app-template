@@ -4,7 +4,7 @@ server {
 
 	access_log /var/log/nginx/flask_project.log;
 	location / {
-	  proxy_pass http://appsvr:5000;
+	  proxy_pass https://appsvr:5000;
 	  include uwsgi_params;
           uwsgi_pass 127.0.0.1:8000;
 	  proxy_set_header Host $host;
