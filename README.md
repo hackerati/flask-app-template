@@ -65,8 +65,9 @@ Start by installing Docker:
 
 ```bash
 $ wget -qO- https://get.docker.com/ | sh
-$ sudo usermod -aG docker <your user name>
+$ sudo  -aG docker <your user name>
 ```
+Restart your computer for the installation to take effect.
 
 Now verify that Docker is properly installed:
 
@@ -77,6 +78,7 @@ $ docker run hello-world
 Then install Docker Compose:
 
 ```bash
+$ sudo chown -R $(whoami) /usr/local/bin
 $ sudo -i curl -L https://github.com/docker/compose/releases/download/1.3.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 $ chmod +x /usr/local/bin/docker-compose
 ```
@@ -84,11 +86,13 @@ $ chmod +x /usr/local/bin/docker-compose
 At this point, you can clone the repo and start the Docker containers:
 
 ```bash
-$ git clone git@github.com:thehackerati/flask-app-template.git
+$ git clone https://github.com/thehackerati/flask-app-template.git
 $ cd flask-app-template
 $ docker-compose build
 $ docker-compose up
 ```
+
+It will take several minutes for the containers to build
 
 You might see the following error message when attempting to start the containers:
 
