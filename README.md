@@ -145,6 +145,7 @@ As a starting point, this repo only includes some very basic components:
 - app: Docker container based on the official flask image, along with the flask/express app scaffolding
 - docker-compose.yml: runs the configured Docker containers
 - nginx: Docker container for the official nginx image, configured as a reverse proxy for the app
+- .travis.yml: Runs tests on Travis for every push
 
 You can add additional services like mongodb, mysql, redis, and elasticsearch as separate containers. As a convention, add each container in its own directory under the project root and configure the container in docker-compose.yml.
 
